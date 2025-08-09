@@ -9,7 +9,11 @@
 #   end
 
 # Addresses
-Address.create!(city: "Staré město", area_code: "110 00", street: "Kamzíkova", house_number: 6)
+Address.create!(city: "Praha", area_code: "110 00", street: "Kamzíkova", house_number: 6)
+Address.create!(city: "Praha", area_code: "110 00", street: "Vratislavova", house_number: 28)
+Address.create!(city: "Praha", area_code: "110 00", street: "Dlouhá", house_number: 727)
 
 # Restaurants
 Restaurant.create!(name: "U Červeného páva", address_id: 1, opening_time: "11:30", closing_time: "22:00", cuisine: "Czech")
+Restaurant.create!(name: "U Kroka", address_id: 2, opening_time: "11:30", closing_time: "23:00", cuisine: "Czech")
+Restaurant.create!(name: "Naše maso", address_id: 3, opening_time: "11:00", closing_time: "22:00", cuisine: "Czech")
