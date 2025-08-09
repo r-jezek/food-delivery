@@ -4,6 +4,6 @@ class Address < ApplicationRecord
   validates :house_number, numericality: { greater_than: 0 }
 
   def to_s
-    "#{house_number} #{street}, #{city}, #{area_code}"
+    "#{street} #{house_number}, #{city}, #{area_code}"
   end
 end
