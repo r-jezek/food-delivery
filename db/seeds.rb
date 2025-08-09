@@ -17,3 +17,8 @@ Address.create!(city: "Praha", area_code: "110 00", street: "Dlouhá", house_num
 Restaurant.create!(name: "U Červeného páva", address_id: 1, opening_time: "11:30", closing_time: "22:00", cuisine: "Czech")
 Restaurant.create!(name: "U Kroka", address_id: 2, opening_time: "11:30", closing_time: "23:00", cuisine: "Czech")
 Restaurant.create!(name: "Naše maso", address_id: 3, opening_time: "11:00", closing_time: "22:00", cuisine: "Czech")
+
+# Menu Items
+# U Červeného páva
+MenuItem.create!(restaurant_id: 1, name: "Svíčková na smetaně", description: "Svíčková, karlovarský knedlík", price: 150)
+MenuItem.create!(restaurant_id: 1, name: "Guláš", description: "Guláš, houskový knedlík", price: 120)
