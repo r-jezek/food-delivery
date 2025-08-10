@@ -4,17 +4,19 @@
 </head>
 <body>
     <h1>Restaurants</h1>
-    <% for restaurant in @restaurants%>
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title"><%= restaurant.name %></h5>
-                <p class="card-text">
-                    <%= "#{restaurant.opening_time.to_fs(:time)} - #{restaurant.closing_time.to_fs(:time)},
-                        #{restaurant.cuisine},
-                        #{restaurant.address.to_s}" %>
+    <% for restaurant in @restaurants %>
+        <%= link_to restaurant, class: "text-decoration-none" do %>
+            <div class="card mt-2">
+                <div class="card-body">
+                    <h5 class="card-title"><%= restaurant.name %></h5>
+                    <p class="card-text">
+                        <%= "#{restaurant.opening_time.to_fs(:time)} - #{restaurant.closing_time.to_fs(:time)},
+                            #{restaurant.cuisine},
+                            #{restaurant.address.to_s}" %>
                     </p>
+                </div>
             </div>
-        </div>
+        <% end %>
     <% end %>
 </body>
 </html>
