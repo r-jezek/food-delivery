@@ -1,22 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-</head>
-<body>
-    <h1>Restaurants</h1>
-    <% for restaurant in @restaurants %>
-        <%= link_to restaurant, class: "text-decoration-none" do %>
-            <div class="card mt-2">
-                <div class="card-body">
-                    <h5 class="card-title"><%= restaurant.name %></h5>
-                    <p class="card-text">
-                        <%= "#{restaurant.opening_time.to_fs(:time)} - #{restaurant.closing_time.to_fs(:time)},
-                            #{restaurant.cuisine},
-                            #{restaurant.address.to_s}" %>
-                    </p>
-                </div>
-            </div>
-        <% end %>
-    <% end %>
-</body>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-primary">
+      <div class="container-fluid">
+        <span class="navbar-brand text-light fw-bold">Restaurants</span>
+      </div>
+    </nav>
+
+    <div class="container-fluid mt-3">
+      <div class="row d-flex">
+        <div class="col-12">
+            <% for restaurant in @restaurants %>
+
+                <%= link_to restaurant, class: "text-decoration-none" do %>
+                    <div class="card mb-2">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= restaurant.name %></h5>
+                            <p class="card-text">
+                                <%= "#{restaurant.opening_time.to_fs(:time)} - #{restaurant.closing_time.to_fs(:time)},
+                                    #{restaurant.cuisine},
+                                    #{restaurant.address.to_s}" %>
+                            </p>
+                        </div>
+                    </div>
+                <% end %>
+
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
