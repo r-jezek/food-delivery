@@ -1,0 +1,19 @@
+<%= form_with method: :get, class: "form d-flex flex-column" do |form| %>
+    <div>
+        <%= form.label :city, "City", class: "form-label" %>
+        <%= form.text_field :city, value: params[:city], class: "form-control" %>
+    </div>
+    <div class="mt-2">
+        <%= form.label :name, "Name", class: "form-label" %>
+        <%= form.text_field :name, value: params[:name], class: "form-control" %>
+    </div>
+    <div class="mt-2" >
+        <%= form.checkbox :open_only, value: params[:open_only], class: "form-check-input" %>
+        <%= form.label :open_only, "Open Only", class: "form-check-label" %>
+    </div>
+
+    <div class="d-flex mt-2">
+        <%= link_to "Reset", restaurants_path, class: "btn btn-outline-danger me-auto" %>
+        <%= form.submit "Filter", name: nil, class: "btn btn-primary" %>
+    </div>
+<% end %>
