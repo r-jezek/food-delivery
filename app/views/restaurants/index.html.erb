@@ -31,7 +31,7 @@
                             <h5 class="card-title"><%= restaurant.name %></h5>
                             <p class="card-text">
                                 <%= "#{restaurant.opening_time.to_fs(:time)} - #{restaurant.closing_time.to_fs(:time)},
-                                    #{restaurant.cuisine},
+                                    #{restaurant.cuisine.capitalize},
                                     #{restaurant.address.to_s}" %>
                             </p>
                         </div>

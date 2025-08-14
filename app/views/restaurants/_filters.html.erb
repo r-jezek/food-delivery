@@ -10,11 +10,11 @@
     <div class="mt-2">
         <%= form.label :cuisine, class: "form-label" %>
         <%= form.collection_select :cuisine, Restaurant.cuisines.keys, :to_s, :capitalize,
-            { prompt: "Select a cuisine", required: true },
+            { prompt: "Select a cuisine", selected: params[:cuisine] },
             { class: "form-select" } %>
     </div>
     <div class="mt-2" >
-        <%= form.checkbox :open_only, value: params[:open_only], class: "form-check-input" %>
+        <%= form.checkbox :open_only, { checked: params[:open_only] == "1", class: "form-check-input" } %>
         <%= form.label :open_only, "Open Only", class: "form-check-label" %>
     </div>
 
