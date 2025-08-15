@@ -1,2 +1,36 @@
-<h1>Cart#index</h1>
-<p>Find me in app/views/cart/index.html.erb</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-primary">
+      <div class="container-fluid">
+        <span class="navbar-brand text-light fw-bold">Cart</span>
+      </div>
+    </nav>
+
+
+    <div class="container border rounded d-flex flex-column pb-3 mt-3">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Restaurant</th>
+            <th scope="col">Item</th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for item in @cart %>
+          <tr>
+            <td><%= item.restaurant.name %></td>
+            <td><%= item.name %></td>
+            <td><%= item.price %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <button class="btn btn-primary ms-auto">Checkout</button>
+    </div>
+  </body>
+</html>
