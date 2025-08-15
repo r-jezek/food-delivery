@@ -13,8 +13,8 @@
         <h1 class="mt-3"><%= @restaurant.name %></h1>
         <span class="m-0"><%= "#{@restaurant.opening_time.to_fs(:time)} - #{@restaurant.closing_time.to_fs(:time)}" %></span>
         <span>
-            <%= @restaurant.opening_time.to_fs(:time) < Time.now.to_fs(:time) and
-                @restaurant.closing_time.to_fs(:time) > Time.now.to_fs(:time) ?
+            <%= (@restaurant.opening_time.to_fs(:time) < Time.now.to_fs(:time) and
+                @restaurant.closing_time.to_fs(:time) > Time.now.to_fs(:time)) ?
                 "Open" : "Closed" %>
         </span>
         <p><%= @restaurant.address.to_s %></p>
