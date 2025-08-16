@@ -9,7 +9,6 @@
       </div>
     </nav>
 
-
     <div class="container border rounded d-flex flex-column pb-3 mt-3">
       <table class="table table-striped">
         <thead>
@@ -21,22 +20,27 @@
           </tr>
         </thead>
         <tbody>
+          <% total = 0 %>
           <% for item_id in session[:cart] %>
           <% item = MenuItem.find(item_id) %>
           <tr class="align-middle">
             <td><%= item.restaurant.name %></td>
             <td><%= item.name %></td>
-            <td><%= item.price %></td>
+            <td><%= "#{item.price} Kč" %></td>
             <td><%= button_to "Remove", remove_cart_path(item.id), method: :delete, class: "btn btn-outline-danger d-flex ms-auto" %></td>
           </tr>
+          <% total += item.price %>
           <% end %>
         </tbody>
       </table>
 
-      <div class="container-fluid d-flex">
+      <p class="fw-bold ms-auto"><%= "Total #{total} Kč"if total > 0 %></p>
+
+      <div class="container-fluid d-flex p-0">
         <%= button_to "Clear Cart", clear_cart_path, method: :delete, class: "btn btn-outline-danger" %>
         <button class="btn btn-primary ms-auto">Checkout</button>
       </div>
     </div>
   </body>
 </html>
+ 
