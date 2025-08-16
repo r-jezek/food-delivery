@@ -13,5 +13,5 @@ Rails.application.routes.draw do
   root "restaurants#index"
   resources :restaurants, only: [ :index, :show ]
   post "cart/add/:id", to: "cart#add", as: :add_cart
-  get "cart/index"
+  get "cart", to: "cart#index"
 end
