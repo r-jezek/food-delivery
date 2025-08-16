@@ -6,6 +6,5 @@ class CartController < ApplicationController
   end
 
   def index
-    @cart = MenuItem.where(id: session[:cart] || [])
   end
 end
