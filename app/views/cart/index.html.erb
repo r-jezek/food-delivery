@@ -33,7 +33,10 @@
         </tbody>
       </table>
 
-      <button class="btn btn-primary ms-auto">Checkout</button>
+      <div class="container-fluid d-flex">
+        <%= button_to "Clear Cart", clear_cart_path, method: :delete, class: "btn btn-outline-danger" %>
+        <button class="btn btn-primary ms-auto">Checkout</button>
+      </div>
     </div>
   </body>
 </html>

@@ -11,6 +11,11 @@ class CartController < ApplicationController
     redirect_back fallback_location: root_path
   end
 
+  def clear
+    session[:cart] = []
+    redirect_back fallback_location: root_path
+  end
+
   def index
   end
 end

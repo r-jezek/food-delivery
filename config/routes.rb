@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   resources :restaurants, only: [ :index, :show ]
   post "cart/add/:id", to: "cart#add", as: :add_cart
   get "cart", to: "cart#index"
-  # Remove from cart
+  # Remove item from cart
   delete "cart/:id", to: "cart#remove", as: :remove_cart
+  # Remove all from cart
+  delete "cart", to: "cart#clear", as: :clear_cart
 end
