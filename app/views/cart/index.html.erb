@@ -17,15 +17,17 @@
             <th scope="col">Restaurant</th>
             <th scope="col">Item</th>
             <th scope="col">Price</th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
           <% for item_id in session[:cart] %>
           <% item = MenuItem.find(item_id) %>
-          <tr>
+          <tr class="align-middle">
             <td><%= item.restaurant.name %></td>
             <td><%= item.name %></td>
             <td><%= item.price %></td>
+            <td><%= button_to "Remove", remove_cart_path(item.id), method: :delete, class: "btn btn-outline-danger d-flex ms-auto" %></td>
           </tr>
           <% end %>
         </tbody>
