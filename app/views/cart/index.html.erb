@@ -21,7 +21,7 @@
         </thead>
         <tbody>
           <% total = 0 %>
-          <% for item_id in session[:cart] %>
+          <% for item_id in session[:cart] || [] %>
           <% item = MenuItem.find(item_id) %>
           <tr class="align-middle">
             <td><%= item.restaurant.name %></td>
@@ -34,7 +34,7 @@
         </tbody>
       </table>
 
-      <p class="fw-bold ms-auto"><%= "Total #{total} Kč"if total > 0 %></p>
+      <p class="fw-bold ms-auto"><%= "Total #{total} Kč" if total > 0 %></p>
 
       <div class="container-fluid d-flex p-0">
         <%= button_to "Clear Cart", clear_cart_path, method: :delete, class: "btn btn-outline-danger" %>
