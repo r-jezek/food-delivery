@@ -36,9 +36,9 @@
 
       <p class="fw-bold ms-auto"><%= "Total #{total} Kč" if total > 0 %></p>
 
-      <div class="container-fluid d-flex p-0">
+      <div class="container-fluid d-flex justify-content-between p-0">
         <%= button_to "Clear Cart", clear_cart_path, method: :delete, class: "btn btn-outline-danger" %>
-        <button class="btn btn-primary ms-auto">Checkout</button>
+        <%= button_to "Checkout", checkout_path, method: :get, class: "btn btn-primary", disabled: session[:cart].blank? %>
       </div>
     </div>
   </body>
