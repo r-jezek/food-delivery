@@ -1,0 +1,44 @@
+<%= form_with model: @order do |form| %>
+    <div class="card">
+        <div class="card-header">
+            <h5>Address</h5>
+        </div>
+
+        <div class="card-body">
+            <%= form.fields_for :addresses do |addresses_form| %>
+                <div class="row">
+                    <div class="col-6">
+                        <%= form.label :city, class: "form-label" %>
+                        <%= form.text_field :city, required: true, class: "form-control" %>
+                    </div>
+
+                    <div class="col-6">
+                        <%= form.label :street, class: "form-label" %>
+                        <%= form.text_field :street, required: true, class: "form-control" %>
+                    </div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-6">
+                        <%= form.label :area_code, class: "form-label" %>
+                        <%= form.text_field :area_code, required: true, class: "form-control" %>
+                    </div>
+
+                    <div class="col-6">
+                        <%= form.label :house_number, class: "form-label" %>
+                        <%= form.number_field :house_number, required: true, class: "form-control", min: 1, step: 1 %>
+                    </div>
+                </div>
+            <% end %>
+
+            <div class="row mt-2 align-items-center">
+                <div class="col-auto">
+                    <%= form.label :total, class: "form-label" %>
+                </div>
+                <div class="col-auto ms-auto">
+                    <%= form.number_field :total, required: true, class: "form-control", value: session[:cart_total] %>
+                </div>
+            </div>
+        </div>
+    </div>
+<% end %>

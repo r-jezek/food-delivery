@@ -1,2 +1,20 @@
-<h1>Order#index</h1>
-<p>Find me in app/views/order/index.html.erb</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>    
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-primary">
+      <div class="container-fluid">
+        <%= link_to "Back to Cart", cart_path, class: "navbar-brand text-light fw-bold" %>
+      </div>
+    </nav>
+
+    <div class="container-fluid d-flex justify-content-center mt-3">
+        <div class="row container-fluid w-50">
+            <%= render "address_form" %>
+        </div>
+    </div>
+
+  </body>
+</html>
+ 
