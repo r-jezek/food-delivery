@@ -34,7 +34,7 @@
         </tbody>
       </table>
 
-      <p class="fw-bold ms-auto"><%= "Total #{total} Kč" if total > 0 %></p>
+      <p class="fw-bold ms-auto"><%= "Total #{session[:cart_total]} Kč" %></p>
 
       <div class="container-fluid d-flex justify-content-between p-0">
         <%= button_to "Clear Cart", clear_cart_path, method: :delete, class: "btn btn-outline-danger" %>
