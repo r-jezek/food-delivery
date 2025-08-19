@@ -36,7 +36,13 @@
                     <%= form.label :total, class: "form-label" %>
                 </div>
                 <div class="col-auto ms-auto">
-                    <%= form.number_field :total, required: true, class: "form-control", value: session[:cart_total] %>
+                    <%= form.number_field :total, required: true, class: "form-control", value: session[:cart_total], disabled: true %>
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="col d-flex">
+                    <%= form.submit "Order", class: "btn btn-primary ms-auto" %>
                 </div>
             </div>
         </div>
