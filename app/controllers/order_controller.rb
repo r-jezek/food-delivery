@@ -12,9 +12,11 @@ class OrderController < ApplicationController
     @order = Order.new(address_id: @address.id, total_price: session[:cart_total], date_ordered: Time.now)
     if not @order.save
       render :index, status: :unprocessable_entity
-    else
-      redirect_to root_path
     end
+
+    session[:cart] = []
+    session[:cart_total] = 0
+    redirect_to root_path
   end
 
   private
