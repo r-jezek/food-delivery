@@ -1,14 +1,21 @@
 class RestaurantsController < ApplicationController
   def index
-    @filter_params = filter_params
-    @restaurants = Restaurant.joins(:address).where("LOWER(addresses.city) LIKE ?", "%#{filter_params[:city]}%")
-    @restaurants.where!("LOWER(name) LIKE ?", "%#{filter_params[:name]}%")
-    @restaurants.where!("LOWER(cuisine) LIKE ?", "%#{filter_params[:cuisine]}%")
+    @restaurants = Restaurant.joins(:address)
+    if filter_params[:city] != nil
+      @restaurants.where!("LOWER(addresses.city) LIKE ?", "%#{Restaurant.sanitize_sql_like(filter_params[:city].downcase)}%")
+    end
 
-    if @filter_params[:open_only] == "1"
+    if filter_params[:name] != nil
+      @restaurants.where!("LOWER(name) LIKE ?", "%#{Restaurant.sanitize_sql_like(filter_params[:name].downcase)}%")
+    end
+
+    if filter_params[:cuisine] != nil
+      @restaurants.where!("LOWER(cuisine) LIKE ?", "%#{Restaurant.sanitize_sql_like(filter_params[:cuisine].downcase)}%")
+    end
+
+    if filter_params[:open_only] == "1"
       time = Time.now.strftime("%H%M")
       @restaurants.where!("opening_time < ? AND closing_time > ?", time, time)
-      # @restaurant.opening_time.to_fs(:time) < Time.now.to_fs(:time) and @restaurant.closing_time.to_fs(:time) > Time.now.to_fs(:time)
     end
   end
 
