@@ -16,7 +16,10 @@ class OrderController < ApplicationController
 
     session[:cart] = []
     session[:cart_total] = 0
-    redirect_to root_path
+    redirect_to complete_order_path
+  end
+
+  def complete
   end
 
   private

@@ -22,4 +22,5 @@ Rails.application.routes.draw do
 
   get "checkout", to: "order#index", as: :checkout
   post "orders", to: "order#create"
+  get "complete", to: "order#complete", as: :complete_order
 end
