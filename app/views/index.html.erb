@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>    
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-primary">
+      <div class="container-fluid">
+        <span class="navbar-brand text-light fw-bold">Restaurants</span>
+        <%= link_to "Cart", cart_path, class: "nav-link text-light" %>
+      </div>
+    </nav>
+
+    <div class="container-fluid d-flex flex-column justify-content-center align-items-center" style="height: calc(85vh - 56px);">
+      <h1 class="display-1">Food Delivery</h1>
+
+      <%= form_with url: "/restaurants", method: :get do |form| %>
+        <div class="input-group">
+            <%= form.search_field :city, placeholder: "Search city...", class: "form-control" %>
+            <%= form.submit "Search", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+      <%= link_to "View all restaurants", restaurants_path, class: "fw-bold" %>
+    </div>
+
+  </body>
+</html>
