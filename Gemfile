@@ -10,8 +10,6 @@ gem "pg", "~> 1.1"
 gem "puma", ">= 5.0"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
-# Bundle and process CSS [https://github.com/rails/cssbundling-rails]
-gem "cssbundling-rails"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
@@ -28,6 +26,9 @@ gem "bootsnap", require: false
 gem "thruster", require: false
 
 gem "dotenv-rails", groups: [ :development, :test ]
+
+gem "bootstrap", "~> 5.3.5"
+gem "dartsass-rails"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
